@@ -1,0 +1,15 @@
+.faq-page-container {
+  position: relative;
+  width: 100vw;
+  min-height: 79vh;
+  padding-top: 14vh;
+  padding-bottom: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-line-item {
+  width: 85%;
+}

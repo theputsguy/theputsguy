@@ -1,0 +1,114 @@
+/* header image */
+.header-image-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-image {
+  animation: imageFadeIn 1s ease-in-out;
+  position: fixed;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* cta section */
+
+.cta-container {
+  max-width: 800px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background: #324a59;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta-headers-container {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  white-space: nowrap;
+  grid-template-rows: 1fr;
+}
+.cta-headers-bttn {
+  transition: all 0.25s ease;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  font-size: 150%;
+  font-weight: 400;
+  padding: 1em 0em 1em 0em;
+  word-spacing: 0.2em;
+  user-select: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.25);
+}
+.cta-headers-bttn::after {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.cta-headers-bttn-toggled {
+  color: rgba(255, 255, 255, 1);
+}
+.cta-headers-bttn:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+.cta-headers-bttn-toggled:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+.cta-headers-bttn-toggled::after {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.cta-body-container {
+  display: flex;
+  min-height: 150px;
+  width: 85%;
+  padding: 7% 0% 10% 0%;
+  font-size: 130%;
+  font-weight: 300;
+  word-spacing: 0.2em;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.cta-footer {
+  padding: 2% 0% 2% 0%;
+  font-weight: 300;
+  color: #fff;
+  opacity: 0.35;
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+@keyframes imageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cta-headers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
