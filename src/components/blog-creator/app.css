@@ -22,29 +22,46 @@
   display: flex;
   gap: 2vw;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .title-date-image-container {
-  display: grid;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 540px;
   height: inherit;
+  gap: 10px;
 }
 .title-date-image-container input {
+  width: 350px;
+  margin: 0px 10px;
   height: 30px;
-  width: 100%;
   outline: none;
   border: none;
 }
 .title-date-image-container button {
-  width: 100%;
+  width: 150px;
   height: 30px;
   outline: none;
   border: none;
-  border-radius: 5px;
   background: rgb(136, 145, 161);
+  outline: none;
 }
 
 .jodit-preview {
   position: relative;
   color: white;
+}
+
+.login {
+  position: absolute;
+  width: 100%;
+  top: 7vh;
+}
+
+.hidden {
+  opacity: 0;
+  display: hidden;
 }

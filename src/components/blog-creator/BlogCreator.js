@@ -12,7 +12,7 @@ const BlogCreator = () => {
 
   const config = {
     height: "50vh",
-    width: "75vw",
+    width: "90vw",
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
   const titleHandler = (e) => {
@@ -33,26 +33,26 @@ const BlogCreator = () => {
       image: imageUrl,
       title: title,
       date: date,
-      body: content.split("<p>").join("").split("</p>").join(""),
+      body: content.split("<p>").join("").split("</p>").join("<br>").split("<br>"),
     };
-
+    console.log(baseObj);
     //get the current object
-    const data = await fetch("https://api.jsonbin.io/v3/b/60c04b119fc30168f1ca2abb", {
+    const data = await fetch("https://api.jsonbin.io/v3/b/60e7d9bfa63d2870c1906368", {
       method: "GET",
       headers: {
-        "X-Master-Key": "$2b$10$TBFDFW8pqBYx5Hjx2VOiBuSJ/mt99xnn.L6OR3X7TJ2S7WcxvXCZO",
+        "X-Master-Key": "$2b$10$o3piOdvsNGKDQ7TzQ2svnOyhzzNNSseryZ3SdC1.cyGnqlGyfhzkO",
       },
     });
     const items = await data.json();
     //add newObj to original data
-    const concatData = [baseObj, ...items.record];
+    const concatData = [baseObj, ...items?.record?.record];
 
-    fetch("https://api.jsonbin.io/v3/b/60c04b119fc30168f1ca2abb", {
+    fetch("https://api.jsonbin.io/v3/b/60e7d9bfa63d2870c1906368", {
       method: "PUT",
       body: JSON.stringify(concatData),
       headers: {
         "Content-Type": "application/json",
-        "X-Master-Key": "$2b$10$TBFDFW8pqBYx5Hjx2VOiBuSJ/mt99xnn.L6OR3X7TJ2S7WcxvXCZO",
+        "X-Master-Key": "$2b$10$o3piOdvsNGKDQ7TzQ2svnOyhzzNNSseryZ3SdC1.cyGnqlGyfhzkO",
       },
     });
   };
@@ -64,14 +64,6 @@ const BlogCreator = () => {
         **Only press Submit when the preview below looks exactly as you'd like**
       </div>
       <div className="blog-creator-container">
-        <JoditEditor
-          ref={editor}
-          value={content}
-          config={config}
-          tabIndex={1} // tabIndex of textarea
-          onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-          onChange={(newContent) => {}}
-        />
         <div className="title-date-image-container">
           <form>
             <input type="text" placeholder="enter title here"></input>
@@ -92,6 +84,14 @@ const BlogCreator = () => {
             </button>
           </form>
         </div>
+        <JoditEditor
+          ref={editor}
+          value={content}
+          config={config}
+          tabIndex={1} // tabIndex of textarea
+          onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+          onChange={(newContent) => {}}
+        />
       </div>
       <div className="jodit-preview">
         <div className="full-blog-page">
@@ -106,7 +106,7 @@ const BlogCreator = () => {
                 .split("<p>")
                 .join("")
                 .split("</p>")
-                .join("")
+                .join("<br>")
                 .split("<br>")
                 .map((section) => {
                   return (

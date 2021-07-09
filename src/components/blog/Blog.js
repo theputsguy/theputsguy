@@ -7,10 +7,10 @@ const BlogEntry = lazy(() => import("./BlogEntry"));
 const Blog = ({ setSelectedLink }) => {
   const [items, setItems] = useState({ record: { root: [] } });
   const fetchItems = async () => {
-    const data = await fetch("https://api.jsonbin.io/v3/b/60bd26959fc30168f1c5813e", {
+    const data = await fetch("https://api.jsonbin.io/v3/b/60e7d9bfa63d2870c1906368", {
       method: "GET",
       headers: {
-        "X-Master-Key": "$2b$10$TBFDFW8pqBYx5Hjx2VOiBuSJ/mt99xnn.L6OR3X7TJ2S7WcxvXCZO",
+        "X-Master-Key": "$2b$10$o3piOdvsNGKDQ7TzQ2svnOyhzzNNSseryZ3SdC1.cyGnqlGyfhzkO",
       },
     });
 
@@ -27,7 +27,7 @@ const Blog = ({ setSelectedLink }) => {
       <div className="blog-page">
         <div className="blog-container">
           <Suspense fallback={<div>loading...</div>}>
-            {items?.record?.root.map((entry) => {
+            {items?.record?.record?.root.map((entry) => {
               return (
                 <Fade>
                   <BlogEntry

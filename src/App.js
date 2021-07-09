@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/header/Header";
 import AboutUs from "./components/aboutUs/AboutUs";
 import Blog from "./components/blog/Blog";
+import Login from "./components/blog-creator/Login";
 import BlogCreator from "./components/blog-creator/BlogCreator";
 import FAQ from "./components/faq/FAQ";
 import FullPageBlog from "./components/blog/FullPageBlog";
@@ -43,7 +44,8 @@ function App() {
                 />
               )}
             />
-            <Route path="/blog-creator" exact render={(props) => <BlogCreator {...props} />} />
+            <Route path="/login" exact render={(props) => <Login {...props} />} />
+            <Route path="/create" exact render={(props) => <BlogCreator {...props} />} />
             <Route
               path="/faq"
               exact
