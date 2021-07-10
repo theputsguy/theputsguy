@@ -63,7 +63,7 @@ const FullPageBlog = ({ setSelectedLink, match }) => {
             <div className="full-blog-social-share-container">
               <FacebookShareButton
                 key={Math.random() * 100}
-                url="www.google.com"
+                url={window.location.href}
                 quote={"Check out this great blog post from the puts guy!"}
                 hashtag="#theputsguy"
               >
@@ -72,7 +72,7 @@ const FullPageBlog = ({ setSelectedLink, match }) => {
               Share this post
               <TwitterShareButton
                 key={Math.random() * 100}
-                url="www.google.com"
+                url={window.location.href}
                 quote={"Check out this great blog post from the puts guy!"}
                 hashtag="#theputsguy"
               >
