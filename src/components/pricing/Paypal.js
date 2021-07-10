@@ -8,6 +8,7 @@ const Paypal = () => {
     <div className="paypal-container">
       <div className="paypal">
         <PayPalScriptProvider
+          key={Math.random() * 1000}
           options={{
             vault: true,
             intent: "subscription",
@@ -16,6 +17,7 @@ const Paypal = () => {
           }}
         >
           <PayPalButtons
+            key={Math.random() * 1000}
             style={{
               shape: "rect",
               color: "blue",

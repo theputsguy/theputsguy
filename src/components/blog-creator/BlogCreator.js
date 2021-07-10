@@ -54,6 +54,8 @@ const BlogCreator = () => {
         "Content-Type": "application/json",
         "X-Master-Key": "$2b$10$o3piOdvsNGKDQ7TzQ2svnOyhzzNNSseryZ3SdC1.cyGnqlGyfhzkO",
       },
+    }).then((response) => {
+      console.log(response.json());
     });
   };
   return (
