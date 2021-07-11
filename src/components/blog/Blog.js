@@ -59,7 +59,7 @@ const Blog = ({ setSelectedLink }) => {
         <div className="blog-container">
           {items.map((entry) => {
             return (
-              <Fade>
+              <Fade key={Math.random() * 100}>
                 <BlogEntry
                   imgSrc={entry.imgUrl}
                   key={entry.id}

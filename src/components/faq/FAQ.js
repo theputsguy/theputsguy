@@ -31,6 +31,9 @@ const FAQ = ({ setSelectedLink }) => {
       background: "rgb(50,74,89)",
       color: "white",
     },
+    icon: {
+      color: "white",
+    },
   }));
   const classes = useStyles();
   return (
@@ -39,7 +42,7 @@ const FAQ = ({ setSelectedLink }) => {
         <div className="faq-line-item">
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -58,7 +61,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -77,7 +80,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -103,7 +106,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -123,7 +126,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -141,7 +144,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -166,7 +169,7 @@ const FAQ = ({ setSelectedLink }) => {
           </Accordion>
           <Accordion className={classes.body}>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon className={classes.icon} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >

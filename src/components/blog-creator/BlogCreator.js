@@ -11,6 +11,7 @@ const BlogCreator = () => {
   const [content, setContent] = useState("");
 
   const config = {
+    buttons: "bold,italic,underline",
     height: "50vh",
     width: "90vw",
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
