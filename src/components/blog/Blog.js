@@ -1,23 +1,54 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
 import "./app.css";
 import Legal from "../legal/Legal";
-const BlogEntry = lazy(() => import("./BlogEntry"));
+import firebase from "../../firebase";
+import BlogEntry from "./BlogEntry";
 
 const Blog = ({ setSelectedLink }) => {
-  const [items, setItems] = useState({ record: { root: [] } });
-  const fetchItems = async () => {
-    const data = await fetch("https://api.jsonbin.io/v3/b/60e7d9bfa63d2870c1906368", {
-      method: "GET",
-      headers: {
-        "X-Master-Key": "$2b$10$o3piOdvsNGKDQ7TzQ2svnOyhzzNNSseryZ3SdC1.cyGnqlGyfhzkO",
-      },
-    });
+  const [items, setItems] = useState([
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+    { title: "Loading", imgUrl: "", body: "", id: "" },
+  ]);
 
-    const items = await data.json();
-    setItems(items);
-  };
   useEffect(() => {
+    const fetchItems = async () => {
+      const dates = [
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+      ];
+      const data = await firebase
+        .firestore()
+        .collection("theputsguy_blog-entries")
+        .get()
+        .then((data) =>
+          data.docs
+            .map((doc) => doc.data())
+            .sort(
+              (item1, item2) =>
+                dates.indexOf(item2.date.split(" ")[0].toLowerCase()) -
+                  dates.indexOf(item1.date.split(" ")[0].toLowerCase()) &&
+                dates.indexOf(item2.date.split(" ")[1].split(",")[0]) -
+                  dates.indexOf(item1.date.split(" ")[1].split(",")[0])
+            )
+        );
+      setItems(data);
+    };
     fetchItems();
     window.scroll(0, 0);
     setSelectedLink(1);
@@ -26,22 +57,20 @@ const Blog = ({ setSelectedLink }) => {
     <>
       <div className="blog-page">
         <div className="blog-container">
-          <Suspense fallback={<div>loading...</div>}>
-            {items?.record?.record?.root.map((entry) => {
-              return (
-                <Fade>
-                  <BlogEntry
-                    imgSrc={entry.image}
-                    key={entry.id}
-                    id={entry.id}
-                    title={entry.title}
-                    date={entry.date}
-                    body={entry.body}
-                  />
-                </Fade>
-              );
-            })}
-          </Suspense>
+          {items.map((entry) => {
+            return (
+              <Fade>
+                <BlogEntry
+                  imgSrc={entry.imgUrl}
+                  key={entry.id}
+                  id={entry.id}
+                  title={entry.title}
+                  date={entry.date}
+                  body={entry.body}
+                />
+              </Fade>
+            );
+          })}
         </div>
       </div>
 
