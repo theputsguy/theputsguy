@@ -1,3 +1,8 @@
+.blog-creator-container {
+  width: 100vw;
+  background: rgb(22, 41, 54);
+}
+
 .final-submit-bttn {
   position: relative;
   width: 50%;
@@ -16,38 +21,16 @@
   font-size: 100%;
 }
 
-.blog-creator-container {
+.joddit-creator-container {
+  position: relative;
+  margin: 0 auto;
   padding-top: 15vh;
-  width: 100vw;
+  width: 85vw;
   display: flex;
   gap: 2vw;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.title-date-image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  width: 540px;
-  height: inherit;
-  gap: 10px;
-}
-.title-date-image-container input {
-  width: 350px;
-  margin: 0px 10px;
-  height: 30px;
-  outline: none;
-  border: none;
-}
-.title-date-image-container button {
-  width: 150px;
-  height: 30px;
-  outline: none;
-  border: none;
-  background: rgb(136, 145, 161);
-  outline: none;
 }
 
 .jodit-preview {

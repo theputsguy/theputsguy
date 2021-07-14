@@ -6,15 +6,7 @@ import firebase from "../../firebase";
 import BlogEntry from "./BlogEntry";
 
 const Blog = ({ setSelectedLink }) => {
-  const [items, setItems] = useState([
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-    { title: "Loading", imgUrl: "", body: "", id: "" },
-  ]);
+  const [items, setItems] = useState([{}]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -56,6 +48,11 @@ const Blog = ({ setSelectedLink }) => {
   return (
     <>
       <div className="blog-page">
+        <img
+          className="header-image"
+          alt="header"
+          src="https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        />
         <div className="blog-container">
           {items.map((entry) => {
             return (

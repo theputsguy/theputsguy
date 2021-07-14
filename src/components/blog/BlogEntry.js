@@ -11,7 +11,6 @@ const BlogEntry = ({ imgSrc, id, title, date }) => {
           <h2>{date}</h2>
         </span>
         <i className="fas fa-chevron-down"></i>
-        <img alt="" src={imgSrc} />
       </div>
     </Link>
   );

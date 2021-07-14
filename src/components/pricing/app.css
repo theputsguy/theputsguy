@@ -43,11 +43,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 90;
 }
 .paypal {
   margin-top: 30px;
   margin-bottom: 30px;
   width: 700px;
+  z-index: 90;
 }
 
 .social-container {

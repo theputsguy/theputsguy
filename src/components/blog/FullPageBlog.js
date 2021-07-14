@@ -45,16 +45,7 @@ const FullPageBlog = ({ setSelectedLink, match }) => {
             <div className="full-page-blog-container-image">
               <img alt="" src={items[0]?.imgUrl} />
             </div>
-            <h3>
-              {items[0]?.body.split("<br>").map((section) => {
-                return (
-                  <div>
-                    {section}
-                    <br />
-                  </div>
-                );
-              })}
-            </h3>
+            <div dangerouslySetInnerHTML={{ __html: items[0].body }}></div>
             <div className="full-blog-social-share-container">
               <FacebookShareButton
                 key={Math.random() * 100}

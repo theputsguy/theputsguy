@@ -22,7 +22,7 @@
   width: 300px;
   height: 175px;
   border-radius: 5px;
-  background: #283642;
+  background: #283642d0;
   color: rgb(221, 221, 221);
   display: flex;
   flex-direction: column;
@@ -105,6 +105,10 @@
   background: rgb(40, 54, 66);
   padding: 4%;
   overflow: hidden;
+}
+.full-page-blog-container a {
+  text-decoration: none;
+  color: rgb(113, 172, 248);
 }
 .full-page-blog-container-image {
   animation: blogEntryLoadAnim 0.5s ease-in-out;

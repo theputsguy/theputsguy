@@ -4,6 +4,7 @@ import "./app.css";
 import HeaderImage from "../headerImage/HeaderImage";
 import Legal from "../legal/Legal";
 import Pricing from "../pricing/Pricing";
+import Contact from "../contact/Contact";
 
 const AboutUs = ({ setSelectedLink }) => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const AboutUs = ({ setSelectedLink }) => {
   });
   return (
     <div>
+      <Contact />
       <HeaderImage />
       <Pricing />
       <Legal />

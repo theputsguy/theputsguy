@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import JoditEditor from "jodit-react";
+import { ChakraProvider, Box, Input } from "@chakra-ui/react";
+
 import "./app.css";
 import "../blog/app.css";
 
@@ -11,22 +13,21 @@ const BlogCreator = () => {
   const [content, setContent] = useState("");
 
   const config = {
-    buttons: "bold,italic,underline",
+    buttons: "bold",
     height: "50vh",
-    width: "90vw",
     readonly: false, // all options from https://xdsoft.net/jodit/doc/
   };
   const titleHandler = (e) => {
     e.preventDefault();
-    setTitle(e.target.parentElement[0].value);
+    setTitle(e.currentTarget.value);
   };
   const dateHandler = (e) => {
     e.preventDefault();
-    setDate(e.target.parentElement[0].value);
+    setDate(e.currentTarget.value);
   };
   const imgHandler = (e) => {
     e.preventDefault();
-    setImageUrl(e.target.parentElement[0].value);
+    setImageUrl(e.currentTarget.value);
   };
 
   const submitFinal = async () => {
@@ -59,42 +60,38 @@ const BlogCreator = () => {
       console.log(response.json());
     });
   };
+
   return (
-    <>
+    <div className="blog-creator-container">
       <div className="final-submit-bttn">
         <button onClick={submitFinal}>submit final</button>
         <br />
         **Only press Submit when the preview below looks exactly as you'd like**
       </div>
-      <div className="blog-creator-container">
-        <div className="title-date-image-container">
-          <form>
-            <input type="text" placeholder="enter title here"></input>
-            <button type="submit" onClick={titleHandler}>
-              Submit Title
-            </button>
-          </form>
-          <form>
-            <input type="text" placeholder="enter date here"></input>
-            <button type="submit" onClick={dateHandler}>
-              Submit Date
-            </button>
-          </form>
-          <form>
-            <input type="text" placeholder="enter img URL"></input>
-            <button type="submit" onClick={imgHandler}>
-              Submit Image URL
-            </button>
-          </form>
-        </div>
-        <JoditEditor
-          ref={editor}
-          value={content}
-          config={config}
-          tabIndex={1} // tabIndex of textarea
-          onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-          onChange={(newContent) => {}}
-        />
+      <div className="joddit-creator-container">
+        <ChakraProvider resetCSS>
+          <Box
+            display="flex"
+            flexDirection="column"
+            p={10}
+            width="100%"
+            borderRadius="5px"
+            backgroundColor="gray.600"
+          >
+            <Input tabIndex={1} placeholder="Title" onChange={titleHandler} />
+            <Input tabIndex={2} placeholder="Date" mt={5} onChange={dateHandler} />
+            <Input tabIndex={3} placeholder="Image URL" mt={5} mb={5} onChange={imgHandler} />
+            <JoditEditor
+              ref={editor}
+              value={content}
+              config={config}
+              tabIndex={4} // tabIndex of textarea
+              onBlur={(newContent) => {
+                setContent(newContent);
+              }} // preferred to use only this option to update the content for performance reasons
+            />
+          </Box>
+        </ChakraProvider>
       </div>
       <div className="jodit-preview">
         <div className="full-blog-page">
@@ -104,26 +101,11 @@ const BlogCreator = () => {
             <div className="full-page-blog-container-image">
               <img alt="" src={imageUrl} />
             </div>
-            <h3>
-              {content
-                .split("<p>")
-                .join("")
-                .split("</p>")
-                .join("<br>")
-                .split("<br>")
-                .map((section) => {
-                  return (
-                    <div key={Math.random() * 100}>
-                      {section}
-                      <br />
-                    </div>
-                  );
-                })}
-            </h3>
+            <h3 dangerouslySetInnerHTML={{ __html: content }}></h3>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
