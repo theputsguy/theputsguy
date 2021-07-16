@@ -13,7 +13,7 @@ const AboutUs = ({ setSelectedLink }) => {
   });
   return (
     <div>
-      <Contact />
+      <Contact key="contact" />
       <HeaderImage />
       <Pricing />
       <Legal />

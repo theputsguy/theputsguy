@@ -1,11 +1,14 @@
-.contact-icon {
-  color: white;
-  font-size: 2em;
-  cursor: pointer;
+body {
+  background: rgb(22, 41, 54);
+  scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
 }
+
 .contact-holder {
   transition: all 0.5s ease-in-out;
-  width: 400px;
+  width: 380px;
+  height: 370px;
+  overflow: hidden;
   padding: 20px;
   position: fixed;
   top: 100%;
@@ -14,11 +17,31 @@
   margin: -10px;
   z-index: 100;
   background: #24353f;
-
+  color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.397);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-header {
+  width: 60px;
+  border-radius: 100%;
+  transition: all 0.25s ease-in-out;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  margin-bottom: 16px;
+  margin-top: -2px;
+}
+.contact-header:hover {
+  color: rgb(168, 210, 230);
 }
 
 .contact-holder-hidden {
-  transform: translate(-30%, calc(0% - 1em - 25px));
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
 }
